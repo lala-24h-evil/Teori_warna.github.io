@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Media Pembelajaran Teori Warna</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.js"></script>
+  <script src="sketch.js" defer></script>
+  <style>
+    body { font-family: Arial; background:#ffe6f0; margin:0; text-align:center; }
+    header { background:#ff4d94; color:white; padding:20px; }
+    nav a { text-decoration:none; background:#ff80b3; color:white; padding:10px 20px; margin:5px; border-radius:8px; }
+    nav a:hover { background:#ff3385; }
+    section { display:none; padding:20px; }
+    section.active { display:block; }
+    #canvas-container { margin:20px auto; width:400px; }
+  </style>
+</head>
+<body>
+  <header><h1>Media Pembelajaran Teori Warna</h1></header>
+  <nav>
+    <a href="#" onclick="showPage('home')">Home</a>
+    <a href="#" onclick="showPage('materi')">Materi</a>
+    <a href="#" onclick="showPage('simulasi')">Simulasi</a>
+    <a href="#" onclick="showPage('tentang')">Tentang</a>
+  </nav>
+
+  <!-- Home -->
+  <section id="home" class="active">
+    <h2>Selamat Datang</h2>
+    <p>Website media pembelajaran interaktif tentang teori warna.</p>
+  </section>
+
+  <!-- Materi -->
+  <section id="materi">
+    <h2>Materi Teori Warna</h2>
+    <h3>1. Warna Primer</h3>
+    <p>Warna dasar yang tidak dapat diperoleh dari campuran warna lain. Yaitu: <b>Merah</b>, <b>Kuning</b>, dan <b>Biru</b>.</p>
+    
+    <h3>2. Warna Sekunder</h3>
+    <p>Dihasilkan dari pencampuran dua warna primer:</p>
+    <ul>
+      <li>Merah + Kuning = <b>Oranye</b></li>
+      <li>Merah + Biru = <b>Ungu</b></li>
+      <li>Biru + Kuning = <b>Hijau</b></li>
+    </ul>
+    
+    <h3>3. Warna Tersier</h3>
+    <p>Dihasilkan dari campuran satu warna primer dengan satu warna sekunder, contohnya:</p>
+    <ul>
+      <li>Merah + Oranye = Merah Oranye</li>
+      <li>Biru + Hijau = Biru Hijau</li>
+      <li>Kuning + Hijau = Kuning Hijau</li>
+    </ul>
+    
+    <h3>4. Roda Warna</h3>
+    <p>Roda warna digunakan untuk melihat hubungan antar warna, seperti <b>warna komplementer</b> (berlawanan), <b>analog</b> (berdekatan), dan <b>monokromatik</b> (satu warna dengan variasi gelap terang).</p>
+  </section>
+
+  <!-- Simulasi -->
+  <section id="simulasi">
+    <h2>Simulasi Teori Warna</h2>
+    <p>Klik tombol warna atau tekan <b>Spasi</b> untuk mengganti warna bola.</p>
+    <div id="canvas-container"></div>
+    <button onclick="ubahWarna('red')">Merah</button>
+    <button onclick="ubahWarna('blue')">Biru</button>
+    <button onclick="ubahWarna('yellow')">Kuning</button>
+  </section>
+
+
+
+ <script>
+  function gabungkanWarna() {
+    // trigger event yang sama dengan tombol "G"
+    let event = new KeyboardEvent('keydown', { key: 'g', keyCode: 71 });
+    document.dispatchEvent(event);
+  }
+
+  function resetSimulasi() {
+    // trigger event yang sama dengan tombol "R"
+    let event = new KeyboardEvent('keydown', { key: 'r', keyCode: 82 });
+    document.dispatchEvent(event);
+  }
+</script>
+
+</body>
+</html>
