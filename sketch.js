@@ -1,3 +1,47 @@
+/// ==================== KODE SIMULASI HATI ====================
+// (punyamu sekarang: class Bentuk, setup(), draw(), dst.)
+// ...
+// fungsi keyPressed, resetWarna, gabungkan, dll
+
+// ==================== RODA WARNA ====================
+let rodaWarnaSketch = (p) => {
+  let angle = 0;
+  let colors = [
+    "#FF0000", // merah
+    "#FF7F00", // oranye
+    "#FFFF00", // kuning
+    "#00FF00", // hijau
+    "#0000FF", // biru
+    "#4B0082", // nila/indigo
+    "#8B00FF"  // ungu
+  ];
+
+  p.setup = () => {
+    let c = p.createCanvas(300, 300);
+    c.parent("roda-warna");   // ini nyambung ke <div id="roda-warna"> di HTML
+    p.angleMode(p.DEGREES);
+  };
+
+  p.draw = () => {
+    p.background("#ffe6f0");
+    p.translate(p.width / 2, p.height / 2);
+    p.rotate(angle);
+
+    let step = 360 / colors.length;
+    for (let i = 0; i < colors.length; i++) {
+      p.fill(colors[i]);
+      p.noStroke();
+      p.arc(0, 0, 250, 250, i * step, (i + 1) * step, p.PIE);
+    }
+
+    angle += 0.5; // kecepatan putar
+  };
+};
+
+new p5(rodaWarnaSketch);
+
+
+
 class Bentuk {
   constructor(x, y, warna) {
     this.x = x;
@@ -99,7 +143,7 @@ function setup() {
 }
 
 function draw() {
-  background("#ffe6f0");
+  background("#ff4d94");
 
   if (bentukGabungan) {
     bentukGabungan.gerak();
